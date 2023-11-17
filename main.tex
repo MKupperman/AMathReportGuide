@@ -100,10 +100,27 @@ The later section heading ``Theoretical background and description of algorithms
 \subsection{``Results'' or ``Computational results''}
 Most people read the results section first, when deciding if they want to read the rest of the paper. This is the core of your paper.
 While this section usually isn't entirely self-contained, a subject-matter-expert should be able to parse this section without reading the methods section. The purpose of this section is to present your results and discuss them. Introduce each experiment very briefly (if the reader is interested, the details can be found in the methods section). Present the results of the experiment, and discuss them. A good way to develop the discussion section is to start by explaining your results to a fellow student or STEM interested friend. Use that outline to develop your results section.
+We will generally write one subsection for each major experiment performed.
+The following high-level outline is a good way to begin to structure your results section. For each experiment, do the following steps:
+\begin{enumerate}
+    \item Give a brief statement of the experiment and the motivation. What are you testing? What are you measuring? What are you varying? What is held constant? Typically, this is one to three sentences, depending on the complexity. You don't need to rehash the contents of the methods section, just give enough detail to orient the reader. For example, we might write the following text
+    \begin{quote}
+        To test the performance of our modified algorithm, we solved the linear system $Ax=b$ with entries of $A$ as i.i.d. Gaussian and $b$ a vector of all ones. We repeated this process 100 times.
+    \end{quote}
+    \item State the immediate results of the experiment and refer the reader to an applicable figure. The goal here is to provide a mechanical description of the resulting observations.
+    Continuing our example, we might write the following text
+    \begin{quote}
+        The error for our proposed algorithm and the classical algorithm is plotted in figure 1. We see that both algorithms have the same rate of convergence, however our algorithm has a lower error at each iteration. Further, our new algorithm maintains an order of magnitude advantage over the classical algorithm at each iteration.
+    \end{quote}
+    \item Finally, state immediate conclusions. While we don't want to extrapolate on our results, we can state immediate conclusions from our results. Continuing our example, we might write the following text
+    \begin{quote}
+        Our results suggest that the additional correction terms added to our algorithm increase the average performance of the algorithm, but do not change the overall rate of convergence. The benefit of the additional correction terms is immediately observable in the first step of the iteration.
+    \end{quote}
+\end{enumerate}
 
 A well written results section does the following:
 \begin{enumerate}
-    \item Present the results in a logical order. Start with the logical beginning, and progress. This often does not correspond to the chronological order of your experiments.
+    \item Present the results in a logical order. Start with the logical beginning, and progress. Work one experiment at a time. This often does not correspond to the chronological order of your experiments.
     \item Figures and tables should be used \emph{as needed} to communicate results. The main text and your arguments should be understandable without requiring the user to read the figures. Figures should be used to support your arguments, not make them.
     \item Remember that evidence does not explain itself. \emph{You} need to explain what the evidence means, and \emph{how it supports the arguments that you make} to answer the research question.
 \end{enumerate}
@@ -120,6 +137,8 @@ The discussion section has a few aims:
 \end{enumerate}
 
 \emph{Be direct about these aspects. It will help your reader understand the value of your contribution.}
+Items 2 and 3 are often combined into a single paragraph. A good way to start writing this section is to ask yourself ``what's bothering me?'' Is there a strong assumption that you suspect will not hold up in reality? Is there a complication that you have excluded that needs to be addressed later? Are the limitations of your technique(s) evident, and prevent you from interrogating the problem further? Are there any other questions that you would like to answer now that you have more information? These are all good questions to ask yourself when writing this section. Not all will apply, but usually at least one will.
+
 A good discussion section for a three to five-page report is two to four paragraphs, addressing the points above in order. A one to three-page report can have one to three paragraphs depending on length constraints and writing style.
 
 \section{Formatting, style, and readability}
@@ -139,10 +158,10 @@ The main text must be readable without needing to view the figures. You should d
     The results of this experiment are shown in Figure 2. We see that the algorithm converges in 10 iterations when no noise is present and the error is less than $10^{-6}$. However, when Gaussian noise is added to the same data with a modest $\sigma=0.01$, the algorithm fails to converge after 100 iterations. This demonstrates that our algorithm is dependent on low noise data.
 \end{quote}
 
-While the contents of the referenced figure may be very helpful in making the point that the algorithm being investigated is sensitive to noise, the point is made needing the figure. A figure is used to support an argument, not make it.
+While the contents of the referenced figure may be very helpful in making the point that the algorithm being investigated is sensitive to noise, the point is made without needing the figure. A figure is used to support an argument, not make it.
 
 \subsubsection{Equations}
-Equations are often necessary to concisely describe the problem you are solving. Equations should be numbered sequentially and imporant equations should be elevated to equation blocks, then referenced in the main text. For example, the following text
+Equations are often necessary to concisely describe the problem you are solving. Equations should be numbered sequentially and important equations should be elevated to equation blocks, then referenced in the main text. For example, the following text
 \begin{quote}
     We are interested in solving the following optimization problem
     \begin{equation} \label{eq:opt_ex}
@@ -164,7 +183,7 @@ It is to your advantage to employ grammar and language checking tools. While bro
 
 While many options exist, the most common are:
 \begin{enumerate}
-    \item \href{https://www.grammarly.com/}{Grammerly}
+    \item \href{https://www.grammarly.com/}{Grammarly}
     \item \href{https://languagetool.org/}{LanguageTool}
     \item Microsoft Word's built in grammar checker
     \item Ask a friend to read your paper.
